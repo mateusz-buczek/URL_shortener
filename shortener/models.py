@@ -19,5 +19,6 @@ class Addresses(models.Model):
         # check if shortened address is not already taken id DB
         if Addresses.objects.get(shortened__exact=self.shortened) == self.shortened:
             # TODO return proper warning, and choose another
+            pass
         else:
             self.save()
