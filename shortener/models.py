@@ -14,7 +14,7 @@ class Addresses(models.Model):
     #     return id()
 
     def get_shortened(self):
-        return self.original
+        return self.shortened
 
     def random_address(self):  # address generator (random)
         letters = string.ascii_lowercase
