@@ -1,17 +1,20 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import get_object_or_404
 from .models import Addresses
-
+from .forms import AddressesForm
 
 def main(request):
-    return HttpResponse('Url shortener main page')
+    form = AddressesForm()
+    return render(request, 'shortener/main.html', {'form': form})
 
 
 def present_shortened_address(request, shortened):
-    shortened_address = Addresses.objects.get(shortened__exact=shortened)  # accessing corresponding url of short in DB
-    response = f"Your shortened link: http://127.0.0.1:8000/{shortened_address.get_shortened()}"  #TODO make it
-    # generating in block content in html with css support
-    return HttpResponse(response)
+    shortened_address = get_object_or_404(Addresses, shortened=shortened)  # accessing corresponding url of short in DB
+    response = f"http://127.0.0.1:8000/{shortened_address.get_shortened()}"
+    return render(request, 'shortener/details.html', {'shortened': response})
 
-# TODO view returning shortened address - decide path: by number in DB or shortened url name? (after pressing button)
-# TODO view redirecting to original url when shortened address requested
+
+def redirect_to_original_address(request, shortened):
+    response = get_object_or_404(Addresses, shortened=shortened)
+    return HttpResponseRedirect(response.get_original())
