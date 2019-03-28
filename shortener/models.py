@@ -5,7 +5,7 @@ import string
 
 class Addresses(models.Model):
     original = models.URLField()
-    shortened = models.CharField(max_length=30)  # input for custom name
+    shortened = models.CharField(max_length=30, blank=True)  # input for custom name
 
     def __str__(self):
         return f"{self.shortened} ({self.original})"
@@ -13,10 +13,10 @@ class Addresses(models.Model):
     # def __int__(self):
     #     return id()
 
-    def get_shortened(self):
+    def get_shortened_address(self):
         return self.shortened
 
-    def get_original(self):
+    def get_original_address(self):
         return self.original
 
     def random_address(self):  # address generator (random), provides lowercase name 4 to 10 letters long
@@ -31,9 +31,9 @@ class Addresses(models.Model):
             if Addresses.objects.get(shortened__exact=self.shortened) == self.shortened:
                 continue
             else:
-                self.save()
-        # if custom name provided check if not taken
+                return self.shortened
+        # if custom name provided, check if not taken
         if Addresses.objects.get(shortened__exact=self.shortened) == self.shortened:
             return False
         else:
-            self.save()
+            return True
