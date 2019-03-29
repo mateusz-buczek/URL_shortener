@@ -9,19 +9,17 @@ def main(request):
     if request.method == 'POST':
         form = AddressForm(request.POST)
         if form.is_valid():
-            # TODO with commit=False it crashes. How to handle it?
-            # if form.shorten_address():
-            # AttributeError: 'AddressForm' object has no attribute 'shorten_address'
-            if form.shorten_address():
-                form.shorten_address()
-                form.save()
-                return redirect('details', shortened=form.shortened)
-            else:
-                form.delete()
-                form = AddressForm(request.GET)
-                return render(request, 'shortener/main.html', {'form': form})
+            address = form.save(commit=False)
 
-    elif request.method == 'GET':
+        if address.getobject() == address.shortened:
+            form = AddressForm()
+            return render(request, 'shortener/main.html', {'form': form})
+
+        else:
+            form.save()
+            return redirect('details', shortened=address.shortened)
+
+    else:
         form = AddressForm()
     return render(request, 'shortener/main.html', {'form': form})
 
