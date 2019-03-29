@@ -11,6 +11,14 @@ Your can shorten your long URL in two ways:
 
 If you try to use name that is already taken id DB, page will reload with provided input (i'm working on proper warning message)
 
+# Looks 
+
+Main: 
+![Main](./images/main.jpg)
+
+Presentation of shortened URL, ready to copy: 
+![Details](./images/shortened_details.jpg)
+
 # Technologies 
 * Python 3.7.2
 * Django 2.1.7 
