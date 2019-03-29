@@ -9,7 +9,7 @@ Your can shorten your long URL in two ways:
 - provide custom name in "Shortened: " field 
 - get random name by leaving "Shortened: " blank 
 
-If you try to use name that is already taken id DB, page will reload with provided input (i'm working on proper warning message)
+If you try to use name that is already taken id DB, page will reload with provided input (i'm working on a proper warning message)
 
 # Looks 
 
