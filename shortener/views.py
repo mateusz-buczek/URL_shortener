@@ -10,15 +10,13 @@ def main(request):
         form = AddressForm(request.POST)
         if form.is_valid():
             address = form.save(commit=False)
+            if address.shorten_address():
+                address.shorten_address()
+                address.save()
+                return redirect('details', shortened=address.shortened)
 
-        if address.getobject() == address.shortened:
-            form = AddressForm()
-            return render(request, 'shortener/main.html', {'form': form})
-
-        else:
-            form.save()
-            return redirect('details', shortened=address.shortened)
-
+            elif address.shorten_address() == False:
+                pass
     else:
         form = AddressForm()
     return render(request, 'shortener/main.html', {'form': form})
