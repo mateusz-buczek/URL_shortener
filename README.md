@@ -14,6 +14,7 @@ If you try to use name that is already taken id DB, page will reload with provid
 # Looks 
 
 Main: 
+
 ![Main](./images/main.JPG)
 
 Presentation of shortened URL, ready to copy: 
