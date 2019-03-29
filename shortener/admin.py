@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Addresses
+from .models import Address
 
 
-admin.site.register(Addresses)
+admin.site.register(Address)

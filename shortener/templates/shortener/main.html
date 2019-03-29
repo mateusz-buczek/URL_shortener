@@ -2,18 +2,17 @@
 
 {% block content %}
 
-  <h1>Try it out</h1>
-  <p>paste your complete long URL below(http at the beginning is mandatory)</p>
-  <form>
-    <div class="input-group">
-      <form method="POST" class="form-control">{% csrf_token %}
-          {{ form.as_p }}
+<h1>Try it out</h1>
+<p>paste your complete long URL below(http at the beginning is mandatory)</p>
+<div class="input-group">
+    <form method="POST"> {% csrf_token %}
+        {{ form.as_p }}
 
-      <div class="input-group-btn">
-        <button type="submit" class="btn btn-danger">Shorten it!</button>
-      </div>
-      </form>
-    </div>
-  </form>
+        <div class="input-group-btn">
+            <button type="submit" class="btn btn-danger">Shorten it!</button>
+        </div>
+    </form>
+</div>
+
 
 {% endblock %}

@@ -1,12 +1,12 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
-from .models import Addresses
+from .models import Address
 
 
-class AddressesForm(forms.ModelForm):
+class AddressForm(forms.ModelForm):
     class Meta:
-        model = Addresses
-        fields = ('original', 'shortened',)
+        model = Address
+        fields = '__all__'
         # help_texts = {
         #     'original': _('Paste URL here'),
         #     'shortened': _('custom short name(optional)'),
