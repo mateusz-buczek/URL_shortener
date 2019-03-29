@@ -18,6 +18,7 @@ Main:
 ![Main](./images/main.JPG)
 
 Presentation of shortened URL, ready to copy: 
+
 ![Details](./images/shortened_details.JPG)
 
 # Technologies 
