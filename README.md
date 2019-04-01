@@ -34,7 +34,7 @@ Copy this repository to your HDD or choose corresponding option in your IDE (PyC
 Install Django: 
 ```
 $ pip install django 
-```
+``` 
 Pycharm should create venv for you. If not, choose default Python based one when asked. 
 If you're impatient type: 
 ```
