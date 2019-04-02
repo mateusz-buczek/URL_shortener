@@ -9,7 +9,17 @@ Your can shorten your long URL in two ways:
 - provide custom name in "Shortened: " field 
 - get random name by leaving "Shortened: " blank 
 
-If you try to use name that is already taken id DB, page will reload with provided input (i'm working on proper warning message)
+If you try to use name that is already taken id DB, page will reload with provided input (i'm working on a proper warning message)
+
+# Looks 
+
+Main: 
+
+![Main](./images/main.JPG)
+
+Presentation of shortened URL, ready to copy: 
+
+![Details](./images/shortened_details.JPG)
 
 # Technologies 
 * Python 3.7.2
@@ -24,7 +34,7 @@ Copy this repository to your HDD or choose corresponding option in your IDE (PyC
 Install Django: 
 ```
 $ pip install django 
-```
+``` 
 Pycharm should create venv for you. If not, choose default Python based one when asked. 
 If you're impatient type: 
 ```
