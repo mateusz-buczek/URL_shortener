@@ -5,6 +5,7 @@ from .models import Address
 from .forms import AddressForm
 
 
+# TODO implement generic views
 def main(request):  # view of main page
     if request.method == 'POST':
         form = AddressForm(request.POST)
