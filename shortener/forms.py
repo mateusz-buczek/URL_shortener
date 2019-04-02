@@ -3,7 +3,7 @@ from django.utils.translation import gettext_lazy as _
 from .models import Address
 
 
-class AddressForm(forms.ModelForm):
+class AddressForm(forms.ModelForm):  # form for input at main page
     class Meta:
         model = Address
         fields = ('original', 'shortened')
@@ -16,6 +16,3 @@ class AddressForm(forms.ModelForm):
         #         'max_length': _('Too long(30 chars limit)'),  # TODO proper error message if name taken
         #     }
         # }
-
-
-# TODO forms with validations, hook it up to html?

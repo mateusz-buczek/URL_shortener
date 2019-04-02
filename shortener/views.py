@@ -5,7 +5,7 @@ from .models import Address
 from .forms import AddressForm
 
 
-def main(request):
+def main(request):  # view of main page
     if request.method == 'POST':
         form = AddressForm(request.POST)
         if form.is_valid():
@@ -22,12 +22,12 @@ def main(request):
     return render(request, 'shortener/main.html', {'form': form})
 
 
-def present_shortened_address(request, shortened):
+def present_shortened_address(request, shortened):  # view presenting shortened address
     shortened_address = get_object_or_404(Address, shortened=shortened)  # accessing corresponding url of short in DB
     response = f"http://127.0.0.1:8000/{shortened_address.shortened}"
     return render(request, 'shortener/details.html', {'shortened': response})
 
 
-def redirect_to_original_address(request, shortened):
+def redirect_to_original_address(request, shortened):  # redirecting to original URL
     response = get_object_or_404(Address, shortened=shortened)
     return HttpResponseRedirect(response.get_original_address())

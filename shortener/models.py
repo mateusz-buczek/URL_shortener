@@ -3,7 +3,7 @@ import random
 import string
 
 
-class Address(models.Model):
+class Address(models.Model):  # model for containing original URL and shortened name
     original = models.URLField()
     shortened = models.CharField(max_length=30, blank=True)  # input for custom name
 
@@ -24,7 +24,7 @@ class Address(models.Model):
             return False
 
     def shorten_address(self):
-        # if custom name not provided generate random one
+        # if custom name not provided generate random one and check if not taken
         while self.shortened == '':
             letters = string.ascii_lowercase
             length = random.randint(4, 10)
