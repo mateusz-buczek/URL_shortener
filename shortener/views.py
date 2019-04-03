@@ -24,9 +24,7 @@ def main(request):  # view of main page
 
 
 def present_shortened_address(request, shortened):  # view presenting shortened address
-    shortened_address = get_object_or_404(Address, shortened=shortened)  # accessing corresponding url of short in DB
-    response = f"http://127.0.0.1:8000/{shortened_address.shortened}"
-    return render(request, 'shortener/details.html', {'shortened': response})
+    return render(request, 'shortener/details.html', {'shortened': shortened})
 
 
 def redirect_to_original_address(request, shortened):  # redirecting to original URL

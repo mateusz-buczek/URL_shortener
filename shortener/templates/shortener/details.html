@@ -2,7 +2,10 @@
 
 {% block content %}
 
-<h1>Your shortened URL:</h1><br>
+<h1>Done!</h1><br>
+<h1>Short name: </h1>
 <p>{{ shortened }}</p>
+<h1>Full path: </h1>
+<p>{% if request.is_secure %}https://{% else %}http://{% endif %}{{ request.get_host }}{{ object.get_absolute_url }}/{{ shortened }}</p>
 
 {% endblock %}
