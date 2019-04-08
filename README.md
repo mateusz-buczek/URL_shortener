@@ -1,5 +1,5 @@
 # URL_shortener 
-web app shortening long urls
+web app shortening long urls 
 
 # General info
 The visual aspect is devoloped to the level that makes it usable. However it's supposed to work, not to be miss universe ;) Also i'm not proficient front-end dev. 
